@@ -37,19 +37,39 @@ const CountryPage: FC = () => {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-lg shadow">
-          <div className="p-6 border-b border-gray-200">
+          <div className="p-6 border-b border-gray-200 relative">
+            <button
+                className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 transition-colors"
+                aria-label="Close"
+                onClick={() => router.push('/')}
+            >
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+              >
+                <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
             <div className="flex items-center gap-6">
               {data?.flagUrl && (
-                <div className="relative w-32 h-24 overflow-hidden rounded-lg">
-                  <Image
-                    src={data.flagUrl}
-                    alt={`Flag of ${data?.country}`}
-                    width={128}
-                    height={96}
-                    className="object-cover"
-                    priority
-                  />
-                </div>
+                  <div className="relative w-32 h-24 overflow-hidden rounded-lg">
+                    <Image
+                        src={data.flagUrl}
+                        alt={`Flag of ${data?.country}`}
+                        width={128}
+                        height={96}
+                        className="object-cover"
+                        priority
+                    />
+                  </div>
               )}
               <h1 className="text-4xl font-bold text-gray-900">
                 {data?.country}
@@ -64,17 +84,17 @@ const CountryPage: FC = () => {
                 </h2>
                 <div className="flex flex-wrap gap-3">
                   {data?.borderCountries ? (
-                    data.borderCountries.map((country) => (
-                      <button
-                        key={country.countryCode}
-                        onClick={() =>
-                          router.push(`/country/${country.countryCode}`)
-                        }
-                        className="group px-4 py-2 bg-gray-50 hover:bg-gray-100
+                      data.borderCountries.map((country) => (
+                          <button
+                              key={country.countryCode}
+                              onClick={() =>
+                                  router.push(`/country/${country.countryCode}`)
+                              }
+                              className="group px-4 py-2 bg-gray-50 hover:bg-gray-100
                     rounded-md border border-gray-300
                     transition-colors duration-200"
-                      >
-                        <div className="flex flex-col items-start">
+                          >
+                            <div className="flex flex-col items-start">
                           <span className="text-gray-900 text-sm font-medium">
                             {country.commonName}
                           </span>
