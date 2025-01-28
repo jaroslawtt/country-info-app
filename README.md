@@ -2,11 +2,6 @@
 
 Full-Stack JS engineer test assessment
 
-## 🖍 Requirements
-
-- [NodeJS](https://nodejs.org/en/) (18.x.x)+;
-- [NPM](https://www.npmjs.com/) (9.x.x)+;
-
 ## 🏃‍♂️ Simple Start
 
 1. **`npm install`** at the root
